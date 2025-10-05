@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <title>2ГИС MapGL — Поиск и маркеры</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- MapGL JS -->
+    <script src="https://mapgl.2gis.com/api/js/v1"></script>
+    <!-- Кластеризация маркеров (опционально) -->
+    <script src="https://unpkg.com/@2gis/mapgl-clusterer@^2/dist/clustering.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.11.2/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.11.2/brython_stdlib.js"></script>
+
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div class="app">
+    <!--    панель слева-->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <h1 class="brand">2ГИС Demo</h1>
+
+            <label class="fld">
+                <span>Отправление</span>
+                <input id="originInput" type="text" placeholder="Адрес или координаты"/>
+            </label>
+
+            <label class="fld">
+                <span>Прибытие</span>
+                <input id="destInput" type="text" placeholder="Адрес или координаты"/>
+            </label>
+
+            <div class="hint">Клик по карте устанавливает точку для активного поля (где курсор).</div>
+
+            <div class="btns">
+                <button id="swapBtn" title="Поменять местами">⇄</button>
+                <button id="locateBtn" title="Моё местоположение">📍</button>
+                <button id="clearBtn" title="Очистить обе точки">🧹</button>
+            </div>
+
+            <div class="btns"><button id="buildRouteBtn" >Построить маршрут</button></div>
+            <div id="routeInfo" class="hint"></div>
+
+
+
+        </div>
+    </aside>
+
+    <!--    карта-->
+    <div id="container" class="map-container">
+<!--         Кнопка компаса рядом с zoom -->
+        <button id="compassBtn" class="map-btn map-btn--compass" title="Выравнять на север">🧭</button>
+           </div>
+
+
+    <script type="module" src="config.js"></script>
+    <script type="module" src="app.js"></script>
+</div>
+    <footer class="app-footer">
+        <small>Демо-проект на MapGL JS + 2ГИС Suggest API</small>
+    </footer>
+</body>
+</html>
